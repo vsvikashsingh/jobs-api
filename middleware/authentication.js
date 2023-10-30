@@ -3,6 +3,7 @@ const { UnauthenticatedError } = require("../errors")
 
 const authenticateUser = async(req, res, next)=>{
     const authHeader = req.headers.authorization
+
     //check for empty or invalid headers
     if(!authHeader || !authHeader.startsWith('Bearer')){
         throw new UnauthenticatedError('No token present')
